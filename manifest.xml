@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeAddin
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="MailAppModule">
+  <Id>30ca35f5-f831-4cdb-9a20-07b733478be1</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Company Name</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Your Add-in Name" />
+  <Description DefaultValue="Description of your add-in" />
+  <IconUrl DefaultValue="https://raw.githubusercontent.com/anoopantogrit/outlookaddin/main/outlookicon.png" />
+  <HighResolutionIconUrl DefaultValue="https://raw.githubusercontent.com/anoopantogrit/outlookaddin/main/outlookicon.png" />
+  <SupportUrl DefaultValue="https://www.example.com/support" />
+  <AppDomains>
+    <AppDomain>https://forms.microsoft.com</AppDomain>
+    <!-- Add more domains as needed -->
+  </AppDomains>
+  <Hosts>
+    <Host Type="Mailbox">
+      <DesktopFormFactor>
+        <FunctionFile resid="Commands.Url" />
+        <ExtensionPoint xsi:type="AppointmentComposeCommandSurface">
+          <OfficeTab id="TabDefault">
+            <!-- Automatically open the Forms survey in an iframe when the add-in loads -->
+            <SourceLocation DefaultValue="https://raw.githubusercontent.com/anoopantogrit/outlookaddin/main/index.html" />
+            <Control xsi:type="Button" id="OpenFormsButtonId" label="Open Forms Survey" />
+          </OfficeTab>
+        </ExtensionPoint>
+      </DesktopFormFactor>
+    </Host>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.5" />
+    </Sets>
+  </Requirements>
+</OfficeAddin>
